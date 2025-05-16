@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}Armored Vehicles{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        font-family: Arial, sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        color: #ecf0f1;
+    }
+    table {
+        width: 90%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    thead {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    th {
+        font-weight: bold;
+        color: #f1c40f;
+    }
+    tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+    tr:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    td {
+        color: #ecf0f1;
+    }
+    .no-data {
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+        color: #bdc3c7;
+    }
+</style>
+
+<h2>Список бронетехники</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Страна</th>
+            <th>Модель</th>
+            <th>Год</th>
+            <th>Скорость</th>
+            <th>Вооружение</th>
+            <th>Топливо</th>
+            <th>Башня</th>
+            <th>Экипаж</th>
+            <th>Плавающая</th>
+            <th>Толщина брони</th>
+            <th>Питание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for v in armored %}
+        <tr>
+            <td>{{ v.name }}</td>
+            <td>{{ v.get_type_display }}</td>
+            <td>{{ v.country }}</td>
+            <td>{{ v.model }}</td>
+            <td>{{ v.year }}</td>
+            <td>{{ v.max_speed }} км/ч</td>
+            <td>{{ v.get_weapon_type_display }}</td>
+            <td>{{ v.get_fuel_display }}</td>
+            <td>{{ v.get_tower_display }}</td>
+            <td>{{ v.crew }}</td>
+            <td>{{ v.is_amphibian|yesno:"Да,Нет" }}</td>
+            <td>{{ v.armor_thickness_cm }} см</td>
+            <td>{{ v.get_nutrition_type_display }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="13" class="no-data">Нет данных.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

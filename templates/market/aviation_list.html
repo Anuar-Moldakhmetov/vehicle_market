@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Aviation{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 2rem;
+        color: #f1f1f1;
+    }
+    table {
+        width: 90%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    thead {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    th {
+        font-weight: bold;
+        color: #1abc9c;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+    }
+    tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+    tr:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    td {
+        color: #ecf0f1;
+        font-size: 0.95rem;
+    }
+    .no-data {
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+        color: #bdc3c7;
+    }
+</style>
+
+<h2>Список авиации</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Страна</th>
+            <th>Модель</th>
+            <th>Год</th>
+            <th>Макс. скорость</th>
+            <th>Вооружение</th>
+            <th>Топливо</th>
+            <th>Экипаж</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in aviation %}
+        <tr>
+            <td>{{ a.name }}</td>
+            <td>{{ a.get_type_display }}</td>
+            <td>{{ a.country }}</td>
+            <td>{{ a.model }}</td>
+            <td>{{ a.year }}</td>
+            <td>{{ a.max_speed }} км/ч</td>
+            <td>{{ a.get_weapon_type_display }}</td>
+            <td>{{ a.get_fuel_display }}</td>
+            <td>{{ a.crew }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="9" class="no-data">Нет данных.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

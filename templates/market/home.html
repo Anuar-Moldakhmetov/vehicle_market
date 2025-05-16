@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Vehicle Market{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.9), rgba(44, 83, 100, 0.9)),
+                    url('https://images.unsplash.com/photo-1602045481968-440daec6d347?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .welcome-section {
+        text-align: center;
+        padding: 100px 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 50px auto;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        color: #f1f1f1;
+    }
+
+    .welcome-section h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #f9ca24;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .welcome-section p {
+        font-size: 1.3em;
+        color: #ecf0f1;
+        max-width: 650px;
+        margin: 0 auto 30px;
+        line-height: 1.6;
+    }
+
+    .welcome-section .btn {
+        background-color: #00a8ff;
+        color: white;
+        padding: 14px 28px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    }
+
+    .welcome-section .btn:hover {
+        background-color: #0097e6;
+        transform: scale(1.05);
+    }
+</style>
+
+<section class="welcome-section">
+    <h2>Welcome to Vehicle Market</h2>
+    <p>Your global marketplace for advanced military aircraft and armored vehicles. Discover, connect, and trade with confidence.</p>
+</section>
+{% endblock %}
