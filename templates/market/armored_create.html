@@ -1,0 +1,7 @@
+<h1>Добавить бронетехнику</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'armored_list' %}">Назад к списку</a>

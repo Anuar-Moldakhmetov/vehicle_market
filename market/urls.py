@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.home, name='home'),  # Корень сайта
     path('aviation/', views.aviation_list, name='aviation_list'),
     path('aviation/add/', views.aviation_create, name='aviation_create'),
-    path('armored/', views.armored_list, name='armored_list'),  # если у тебя есть такое представление
+    path('armored/', views.armored_list, name='armored_list'),  
+    path('armored/add/', views.armored_create, name='armored_create'),
 ]
 

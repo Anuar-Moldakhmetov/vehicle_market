@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Aviation, ArmoredVehicles
-from .forms import AviationForm
+from .forms import AviationForm, ArmoredVehiclesForm
     
 def home(request):
     return render(request, 'market/home.html')
@@ -23,4 +23,14 @@ def aviation_create(request):
 def armored_list(request):
     armored = ArmoredVehicles.objects.all()
     return render(request, 'market/armored_list.html', {'armored': armored})
+
+def armored_create(request):
+    if request.method == 'POST':
+        form = ArmoredVehiclesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('armored_list')
+    else:
+        form = ArmoredVehiclesForm()
+    return render(request, 'market/armored_create.html', {'form': form})    
 
