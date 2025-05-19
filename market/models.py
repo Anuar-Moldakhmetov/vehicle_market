@@ -14,6 +14,11 @@ class Aviation(models.Model):
     class FuelTypes(models.TextChoices):
         KEROSINE = 'kerosene', 'Керосин'
         GAZOLIE = 'gazoline', 'Бензин'
+
+    photo = models.ImageField(upload_to='aviation_photos/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name    
  
     name = models.CharField(max_length=50)
     type = models.CharField(choices = AviationTypes.choices, max_length=50)
@@ -49,7 +54,11 @@ class ArmoredVehicles(models.Model):
     class NutritionTypes(models.TextChoices):
         MACHINE = 'machine', 'Автомат'
         LOADER = 'loader', 'Заряжающий'
+    
+    photo = models.ImageField(upload_to='ArmoredVehicles_photos/', blank=True, null=True)
 
+    def __str__(self):
+        return self.name
     
     name = models.CharField(max_length=50)
     type = models.CharField(choices = ArmoredVehicleTypes.choices, max_length=50)
