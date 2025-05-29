@@ -63,6 +63,14 @@
         background-color: #0097e6;
         transform: scale(1.05);
     }
+
+    .contact-info {
+        margin-top: 40px;
+        font-size: 1.1em;
+        color: #f1f1f1;
+        text-align: center;
+        font-style: italic;
+    }
 </style>
 
 <section class="welcome-section">
@@ -70,8 +78,14 @@
     <p>Your global marketplace for advanced military aircraft and armored vehicles. Discover, connect, and trade with confidence.</p>
 
     <div class="btn-container">
+        <a href="{% url 'aviation_list' %}" class="btn">Просмотр авиации</a>
+        <a href="{% url 'armored_list' %}" class="btn">Просмотр бронетехники</a>
         <a href="{% url 'aviation_create' %}" class="btn">Добавить авиацию</a>
         <a href="{% url 'armored_create' %}" class="btn">Добавить бронетехнику</a>
+    </div>
+
+    <div class="contact-info">
+        Наша почта: <a href="mailto:anuarmoldakhmetov1917@gmail.com" style="color:#f9ca24; text-decoration: none;">anuarmoldakhmetov1917@gmail.com</a>
     </div>
 </section>
 {% endblock %}

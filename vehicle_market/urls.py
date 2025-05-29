@@ -26,6 +26,8 @@ urlpatterns = [
     path('', include('market.urls')),  # Все маршруты проекта через market.urls
     path('aviation/add/', views.aviation_create, name='add_aviation'), 
     path('armored/add/', views.armored_create, name='add_armored'), 
+    path('aviation/', include('aviation.urls')), 
+    path('armored/', include('armored.urls')),    
 ]
 
 if settings.DEBUG:
