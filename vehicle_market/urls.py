@@ -24,8 +24,8 @@ from market import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('market.urls')),  # Все маршруты проекта через market.urls
-    path('aviation/add/', views.aviation_create, name='aviation_create'), 
-    path('armored/add/', views.armored_create, name='armored_create'), 
+    path('aviation/add/', views.aviation_create, name='add_aviation'), 
+    path('armored/add/', views.armored_create, name='add_armored'), 
 ]
 
 if settings.DEBUG:

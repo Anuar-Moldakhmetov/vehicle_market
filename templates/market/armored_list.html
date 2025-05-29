@@ -31,6 +31,7 @@
         padding: 12px 15px;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        vertical-align: middle;
     }
     th {
         font-weight: bold;
@@ -51,12 +52,20 @@
         font-style: italic;
         color: #bdc3c7;
     }
+    img.vehicle-photo {
+        max-width: 100px;
+        max-height: 70px;
+        border-radius: 5px;
+        object-fit: cover;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
 </style>
 
 <h2>Список бронетехники</h2>
 <table>
     <thead>
         <tr>
+            <th>Фото</th>
             <th>Название</th>
             <th>Тип</th>
             <th>Страна</th>
@@ -75,6 +84,13 @@
     <tbody>
         {% for v in armored %}
         <tr>
+            <td>
+                {% if v.photo %}
+                    <img src="{{ v.photo.url }}" alt="{{ v.name }}" class="vehicle-photo" />
+                {% else %}
+                    —
+                {% endif %}
+            </td>
             <td>{{ v.name }}</td>
             <td>{{ v.get_type_display }}</td>
             <td>{{ v.country }}</td>
@@ -91,7 +107,7 @@
         </tr>
         {% empty %}
         <tr>
-            <td colspan="13" class="no-data">Нет данных.</td>
+            <td colspan="14" class="no-data">Нет данных.</td>
         </tr>
         {% endfor %}
     </tbody>
