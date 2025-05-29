@@ -19,10 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from market import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('market.urls')),  # Все маршруты проекта через market.urls
+    path('aviation/add/', views.aviation_create, name='aviation_create'), 
+    path('armored/add/', views.armored_create, name='armored_create'), 
 ]
 
 if settings.DEBUG:

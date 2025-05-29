@@ -40,6 +40,14 @@
         line-height: 1.6;
     }
 
+    .btn-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
     .welcome-section .btn {
         background-color: #00a8ff;
         color: white;
@@ -60,5 +68,10 @@
 <section class="welcome-section">
     <h2>Welcome to Vehicle Market</h2>
     <p>Your global marketplace for advanced military aircraft and armored vehicles. Discover, connect, and trade with confidence.</p>
+
+    <div class="btn-container">
+        <a href="{% url 'aviation_create' %}" class="btn">Добавить авиацию</a>
+        <a href="{% url 'armored_create' %}" class="btn">Добавить бронетехнику</a>
+    </div>
 </section>
 {% endblock %}
